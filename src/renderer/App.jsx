@@ -1,5 +1,5 @@
-import { Home } from 'pages';
 import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
+import { Home } from '../pages';
 
 const App = () => {
   return (
