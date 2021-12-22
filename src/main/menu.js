@@ -187,11 +187,31 @@ export default class MenuBuilder {
   buildDefaultTemplate() {
     const templateDefault = [
       {
-        label: '&File',
+        label: '&View',
         submenu: [
           {
-            label: '&Open',
-            accelerator: 'Ctrl+O',
+            label: '&Foods...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Food add-ons...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Food category...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Tables...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Customer type...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Payment...',
+            // accelerator: 'Ctrl+O',
           },
           {
             label: '&Close',
@@ -203,7 +223,7 @@ export default class MenuBuilder {
         ],
       },
       {
-        label: '&View',
+        label: '&Manage Order',
         submenu:
           process.env.NODE_ENV === 'development' ||
           process.env.DEBUG_PROD === 'true'
@@ -243,6 +263,19 @@ export default class MenuBuilder {
                   },
                 },
               ],
+      },
+      {
+        label: '&Setting',
+        submenu: [
+          {
+            label: '&Application Setting...',
+            // accelerator: 'Ctrl+O',
+          },
+          {
+            label: '&Synchronization...',
+            // accelerator: 'Ctrl+O',
+          },
+        ],
       },
       {
         label: 'Help',
