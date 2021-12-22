@@ -1,24 +1,47 @@
-import {
-  app,
-  Menu,
-  shell,
-  BrowserWindow,
-  MenuItemConstructorOptions,
-} from 'electron';
+import { app, BrowserWindow, Menu, shell } from 'electron';
 
-interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
-  selector?: string;
-  submenu?: DarwinMenuItemConstructorOptions[] | Menu;
+const getData = () => {
+  const win = new BrowserWindow({ width: 800, height: 600, modal: false });
+  console.log('Hello temp');
+  win
+    .loadFile('../NewCategory.jsx')
+    .then((res) => {
+      console.log('res', res);
+      return res.join();
+    })
+    .then((result) => console.log('result', result));
+};
+
+let mainWin;
+
+function createMainWindow() {
+  mainWin = new BrowserWindow({
+    resizable: true,
+    title: 'Login - Dhaka Restaurant',
+    minimizable: true,
+    fullscreenable: true,
+    modal: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      devTools: true,
+    },
+  });
+
+  mainWin.loadFile(path.join(__dirname, 'assests/html/index.html')); //defining the parent window html file
+  mainWin.maximize();
+  mainWin.setMenuBarVisibility(false);
 }
 
 export default class MenuBuilder {
-  mainWindow: BrowserWindow;
+  mainWindow;
 
-  constructor(mainWindow: BrowserWindow) {
+  constructor(mainWindow) {
     this.mainWindow = mainWindow;
   }
 
-  buildMenu(): Menu {
+  buildMenu() {
     if (
       process.env.NODE_ENV === 'development' ||
       process.env.DEBUG_PROD === 'true'
@@ -37,7 +60,7 @@ export default class MenuBuilder {
     return menu;
   }
 
-  setupDevelopmentEnvironment(): void {
+  setupDevelopmentEnvironment() {
     this.mainWindow.webContents.on('context-menu', (_, props) => {
       const { x, y } = props;
 
@@ -52,8 +75,8 @@ export default class MenuBuilder {
     });
   }
 
-  buildDarwinTemplate(): MenuItemConstructorOptions[] {
-    const subMenuAbout: DarwinMenuItemConstructorOptions = {
+  buildDarwinTemplate() {
+    const subMenuAbout = {
       label: 'Electron',
       submenu: [
         {
@@ -84,7 +107,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuEdit: DarwinMenuItemConstructorOptions = {
+    const subMenuEdit = {
       label: 'Edit',
       submenu: [
         { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' },
@@ -100,7 +123,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuViewDev: MenuItemConstructorOptions = {
+    const subMenuViewDev = {
       label: 'View',
       submenu: [
         {
@@ -126,7 +149,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuViewProd: MenuItemConstructorOptions = {
+    const subMenuViewProd = {
       label: 'View',
       submenu: [
         {
@@ -138,7 +161,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuWindow: DarwinMenuItemConstructorOptions = {
+    const subMenuWindow = {
       label: 'Window',
       submenu: [
         {
@@ -151,7 +174,7 @@ export default class MenuBuilder {
         { label: 'Bring All to Front', selector: 'arrangeInFront:' },
       ],
     };
-    const subMenuHelp: MenuItemConstructorOptions = {
+    const subMenuHelp = {
       label: 'Help',
       submenu: [
         {
@@ -206,8 +229,11 @@ export default class MenuBuilder {
             // accelerator: 'Ctrl+O',
           },
           {
-            label: '&Food category...',
+            label: '&Food Category',
             // accelerator: 'Ctrl+O',
+            click: () => {
+              getData();
+            },
           },
           {
             label: '&Tables...',

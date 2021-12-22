@@ -1,4 +1,5 @@
 import { blue } from '@ant-design/colors';
+import NewCategory from 'NewCategory';
 import { MemoryRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from '../pages';
 
@@ -7,7 +8,8 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/category" component={NewCategory} />
       </Switch>
     </Router>
   );
