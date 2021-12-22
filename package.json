@@ -10,7 +10,7 @@
     "package": "ts-node ./.erb/scripts/clean.js dist && npm run build && electron-builder build --publish never",
     "postinstall": "ts-node .erb/scripts/check-native-dep.js && electron-builder install-app-deps && cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack --config ./.erb/configs/webpack.config.renderer.dev.dll.ts && opencollective-postinstall",
     "start": "ts-node ./.erb/scripts/check-port-in-use.js && npm run start:renderer",
-    "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.js",
+    "start:main": "cross-env NODE_ENV=development electron -r ts-node/register/transpile-only ./src/main/main.ts",
     "start:renderer": "cross-env NODE_ENV=development TS_NODE_TRANSPILE_ONLY=true webpack serve --config ./.erb/configs/webpack.config.renderer.dev.ts",
     "test": "jest",
     "prepare": "husky install"
@@ -30,7 +30,7 @@
     ]
   },
   "build": {
-    "productName": "Bhojon POS",
+    "productName": "ElectronReact",
     "appId": "org.erb.ElectronReact",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
@@ -89,26 +89,35 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "bhojon-pos",
-      "repo": "bhojon-pos"
+      "owner": "munirmahmud",
+      "repo": "bhojon-restora-pos"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/munirmahmud/bhojon-pos.git"
+    "url": "git+https://github.com/munirmahmud/bhojon-restora-pos.git"
   },
   "author": {
-    "name": "Bhojon POS",
+    "name": "Munir Mahmud",
     "email": "munirmahmud6@gmail.com",
-    "url": "https://github.com/munirmahmud/"
+    "url": "https://github.com/munirmahmud"
   },
+  "contributors": [
+    {
+      "name": "Rafiul",
+      "email": "badhonngc@gmail.com",
+      "url": "https://github.com/Rafiul585"
+    },
+    {
+      "name": "John Tran",
+      "email": "jptran318@gmail.com",
+      "url": "https://github.com/jooohhn"
+    }
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/munirmahmud/bhojon-pos/issues"
-  },
   "keywords": [
-    "electronjs",
-    "reactjs",
+    "electron",
+    "react",
     "typescript",
     "ts",
     "sass",
@@ -116,7 +125,6 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/munirmahmud/bhojon-pos#readme",
   "jest": {
     "testURL": "http://localhost/",
     "testEnvironment": "jsdom",
@@ -150,8 +158,6 @@
     "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
-    "@types/enzyme": "^3.10.10",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/history": "4.7.9",
     "@types/jest": "^27.0.2",
     "@types/node": "16.11.6",
@@ -161,6 +167,7 @@
     "@types/react-router-dom": "^5.3.2",
     "@types/react-test-renderer": "^17.0.1",
     "@types/terser-webpack-plugin": "^5.0.4",
+    "@types/webpack-dev-server": "^4.5.0",
     "@types/webpack-env": "^1.16.3",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "browserslist-config-erb": "^0.0.3",
@@ -176,9 +183,6 @@
     "electron-devtools-installer": "^3.2.0",
     "electron-notarize": "^1.1.1",
     "electron-rebuild": "^3.2.3",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "enzyme-to-json": "^3.6.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-erb": "^4.0.3",
@@ -221,7 +225,7 @@
     "antd": "^4.17.4",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.1",
-    "electron-updater": "^4.6.1",
+    "electron-updater": "^4.6.2",
     "history": "4.x.x",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

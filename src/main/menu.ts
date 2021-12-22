@@ -1,13 +1,24 @@
-import { app, Menu, shell } from 'electron';
+import {
+  app,
+  Menu,
+  shell,
+  BrowserWindow,
+  MenuItemConstructorOptions,
+} from 'electron';
+
+interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
+  selector?: string;
+  submenu?: DarwinMenuItemConstructorOptions[] | Menu;
+}
 
 export default class MenuBuilder {
-  mainWindow;
+  mainWindow: BrowserWindow;
 
-  constructor(mainWindow) {
+  constructor(mainWindow: BrowserWindow) {
     this.mainWindow = mainWindow;
   }
 
-  buildMenu() {
+  buildMenu(): Menu {
     if (
       process.env.NODE_ENV === 'development' ||
       process.env.DEBUG_PROD === 'true'
@@ -26,7 +37,7 @@ export default class MenuBuilder {
     return menu;
   }
 
-  setupDevelopmentEnvironment() {
+  setupDevelopmentEnvironment(): void {
     this.mainWindow.webContents.on('context-menu', (_, props) => {
       const { x, y } = props;
 
@@ -41,8 +52,8 @@ export default class MenuBuilder {
     });
   }
 
-  buildDarwinTemplate() {
-    const subMenuAbout = {
+  buildDarwinTemplate(): MenuItemConstructorOptions[] {
+    const subMenuAbout: DarwinMenuItemConstructorOptions = {
       label: 'Electron',
       submenu: [
         {
@@ -73,8 +84,7 @@ export default class MenuBuilder {
         },
       ],
     };
-
-    const subMenuEdit = {
+    const subMenuEdit: DarwinMenuItemConstructorOptions = {
       label: 'Edit',
       submenu: [
         { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' },
@@ -90,7 +100,7 @@ export default class MenuBuilder {
         },
       ],
     };
-    const subMenuViewDev = {
+    const subMenuViewDev: MenuItemConstructorOptions = {
       label: 'View',
       submenu: [
         {
@@ -116,8 +126,7 @@ export default class MenuBuilder {
         },
       ],
     };
-
-    const subMenuViewProd = {
+    const subMenuViewProd: MenuItemConstructorOptions = {
       label: 'View',
       submenu: [
         {
@@ -129,8 +138,7 @@ export default class MenuBuilder {
         },
       ],
     };
-
-    const subMenuWindow = {
+    const subMenuWindow: DarwinMenuItemConstructorOptions = {
       label: 'Window',
       submenu: [
         {
@@ -143,7 +151,7 @@ export default class MenuBuilder {
         { label: 'Bring All to Front', selector: 'arrangeInFront:' },
       ],
     };
-    const subMenuHelp = {
+    const subMenuHelp: MenuItemConstructorOptions = {
       label: 'Help',
       submenu: [
         {
