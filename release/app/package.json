@@ -1,17 +1,18 @@
 {
-  "name": "bhojon-restora-pos",
+  "name": "bhojon-pos",
   "version": "4.4.0",
-  "description": "Electron application based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "./dist/main/main.js",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://github.com/munirmahmud/bhojon-pos"
+    "name": "Bhojon Restora POS",
+    "email": "munirmahmud6@gmail.com",
+    "url": "https://github.com/munirmahmud"
   },
   "scripts": {
     "electron-rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
     "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts",
     "postinstall": "npm run electron-rebuild && npm run link-modules"
   },
+  "dependencies": {},
   "license": "MIT"
 }

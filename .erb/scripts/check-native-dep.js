@@ -42,7 +42,7 @@ ${chalk.whiteBright.bgGreen.bold(
   'cd ./release/app && npm install your-package'
 )}
  Read more about native dependencies at:
-${chalk.bold('https://github.com/munirmahmud/bhojon-pos')}
+${chalk.bold('https://github.com/munirmahmud/bhojon-restora-pos')}
  `);
       process.exit(1);
     }

@@ -2,18 +2,18 @@
  * Build config for electron renderer process
  */
 
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import path from 'path';
+import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
-import TerserPlugin from 'terser-webpack-plugin';
-import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { merge } from 'webpack-merge';
-import checkNodeEnv from '../scripts/check-node-env';
-import deleteSourceMaps from '../scripts/delete-source-maps';
+import TerserPlugin from 'terser-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import webpackPaths from './webpack.paths';
+import checkNodeEnv from '../scripts/check-node-env';
+import deleteSourceMaps from '../scripts/delete-source-maps';
 
 checkNodeEnv('production');
 deleteSourceMaps();
@@ -25,7 +25,7 @@ const devtoolsConfig =
       }
     : {};
 
-export default merge(baseConfig, {
+const configuration: webpack.Configuration = {
   ...devtoolsConfig,
 
   mode: 'production',
@@ -35,7 +35,7 @@ export default merge(baseConfig, {
   entry: [
     'core-js',
     'regenerator-runtime/runtime',
-    path.join(webpackPaths.srcRendererPath, 'index.js'),
+    path.join(webpackPaths.srcRendererPath, 'index.tsx'),
   ],
 
   output: {
@@ -128,4 +128,6 @@ export default merge(baseConfig, {
       isDevelopment: process.env.NODE_ENV !== 'production',
     }),
   ],
-});
+};
+
+export default merge(baseConfig, configuration);
