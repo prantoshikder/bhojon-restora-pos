@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div
       style={{
-        backgroundColor: '#f1f1f1',
+        backgroundColor: '#0f71c5',
         width: '100%',
         padding: '1rem 0.4rem',
       }}
