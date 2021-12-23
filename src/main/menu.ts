@@ -1,9 +1,9 @@
 import {
   app,
-  Menu,
-  shell,
   BrowserWindow,
+  Menu,
   MenuItemConstructorOptions,
+  shell,
 } from 'electron';
 
 interface DarwinMenuItemConstructorOptions extends MenuItemConstructorOptions {
@@ -206,7 +206,7 @@ export default class MenuBuilder {
             // accelerator: 'Ctrl+O',
           },
           {
-            label: '&Food category...',
+            label: '&Food Management',
             // accelerator: 'Ctrl+O',
           },
           {
