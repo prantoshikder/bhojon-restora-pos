@@ -13,7 +13,7 @@ const Home = () => {
         <Col span={4}>
           <Sidebar />
         </Col>
-        <Col span={20}>
+        <Col span={16} offset={2}>
           <FoodManagement />
         </Col>
       </Row>
