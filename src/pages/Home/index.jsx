@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 import React from 'react';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
-import FoodManagement from '../FoodManagement/index';
+import FoodManagement from '../manageCategory/index';
 
 const Home = () => {
   return (
