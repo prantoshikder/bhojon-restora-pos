@@ -1,18 +1,22 @@
-import { Button } from 'antd';
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
+import FoodManagement from '../FoodManagement/index';
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <Sidebar />
-      <div className="container">
-        <Link to="/category">Category</Link>
-        <Button type="primary">Click now</Button>
-      </div>
+
+      <Row style={{ height: 'calc(100vh - 64px)' }}>
+        <Col span={4}>
+          <Sidebar />
+        </Col>
+        <Col span={16} offset={2}>
+          <FoodManagement />
+        </Col>
+      </Row>
     </div>
   );
 };

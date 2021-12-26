@@ -229,10 +229,11 @@ export default class MenuBuilder {
             // accelerator: 'Ctrl+O',
           },
           {
-            label: '&Food Category',
+            label: '&Food Management',
             // accelerator: 'Ctrl+O',
             click: () => {
               getData();
+              Z;
             },
           },
           {
