@@ -199,6 +199,9 @@ export default class MenuBuilder {
         submenu: [
           {
             label: '&Foods...',
+            click() {
+              console.log('item 1 clicked');
+            },
             // accelerator: 'Ctrl+O',
           },
           {
