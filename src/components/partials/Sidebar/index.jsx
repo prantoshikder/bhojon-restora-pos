@@ -19,7 +19,9 @@ const Sidebar = ({ home }) => {
   };
 
   return (
-    <div style={{ height: '100%', width: 256 }}>
+    <div
+      style={{ height: 'calc(100vh - 83px)', width: 256, position: 'fixed' }}
+    >
       {home ? (
         <Menu
           theme="dark"
@@ -77,7 +79,7 @@ const Sidebar = ({ home }) => {
             </SubMenu>
           </SubMenu>
 
-          <Menu.Item key="reports">
+          <Menu.Item key="report">
             <Link to="/report">Reports</Link>
           </Menu.Item>
         </Menu>
