@@ -43,8 +43,7 @@ const AddOnsAdd = () => {
           style={{
             backgroundColor: '#f7f7f7',
             padding: '2rem 1rem',
-            marginTop: '3rem',
-            marginBottom: '3rem',
+            marginTop: '2rem',
             boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
           }}
         >
