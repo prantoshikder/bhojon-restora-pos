@@ -8,7 +8,7 @@ const AddNewFood = () => {
     <>
       <Header />
 
-      <Row style={{ height: 'calc(100vh - 64px)' }}>
+      <Row style={{ height: 'calc(100vh - 64px)', paddingTop: 83 }}>
         <Col span={4}>
           <Sidebar />
         </Col>
