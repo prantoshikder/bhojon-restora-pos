@@ -1,8 +1,7 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { Button, Image, message, Modal, Space, Table } from 'antd';
+import { Button, Image, message, Space, Table } from 'antd';
 import React, { useState } from 'react';
-import AddCategory from '../AddCategory/index';
-import './CategoryList.style.scss';
+import './AddOnsList.style.scss';
 
 const rowSelection = {
   onChange: (selectedRowKeys, selectedRows) => {
@@ -20,40 +19,39 @@ const rowSelection = {
   },
 };
 
-const CategoryList = () => {
+const AddOnsList = () => {
   const [checkStrictly, setCheckStrictly] = useState(false);
-  const [visible, setVisible] = useState(false);
 
   const columns = [
     {
-      title: 'Category Image',
-      dataIndex: 'categoryImage',
-      key: 'categoryImage',
+      title: 'Add-ons Image',
+      dataIndex: 'addOnsImage',
+      key: 'addOnsImage',
       render: (text, record) => (
         <Image
-          src={record.categoryImage}
+          src={record.addOnsImage}
           width="50px"
           height="50px"
-          className="category-image"
+          className="addOns-image"
         />
       ),
     },
     {
-      title: 'Category Name',
-      dataIndex: 'categoryMenu',
-      key: 'categoryMenu',
+      title: 'Add-ons Name',
+      dataIndex: 'addOnsName',
+      key: 'addOnsName',
       width: '30%',
     },
     {
-      title: 'Parent Menu',
-      dataIndex: 'parentMenu',
-      key: 'parentMenu',
-      width: '20%',
+      title: 'Price',
+      dataIndex: 'price',
+      key: 'price',
+      width: '15%',
     },
     {
       title: 'Status',
       dataIndex: 'status',
-      width: '15%',
+      width: '20%',
       key: 'status',
     },
     {
@@ -79,58 +77,57 @@ const CategoryList = () => {
   const data = [
     {
       key: 1,
-      categoryImage:
+      addOnsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      categoryMenu: 'Soup N Salads',
-      parentMenu: 'Soup (Thai)',
+      addOnsName: 'Soup N Salads',
+      price: '	15',
       status: 'Active',
     },
     {
       key: 2,
-      categoryImage:
+      addOnsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      categoryMenu: 'Salad (Thai)',
-      parentMenu: 'Chicken item',
+      addOnsName: 'Salad (Thai)',
+      price: '25',
       status: 'Active',
     },
     {
       key: 3,
-      categoryImage:
+      addOnsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      categoryMenu: 'Prawn & Fish Dishes',
-      parentMenu: 'indian',
+      addOnsName: 'Prawn & Fish Dishes',
+      price: '35',
       status: 'Active',
     },
     {
       key: 4,
-      categoryImage:
+      addOnsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      categoryMenu: 'Oven Roasted Eggplant',
-      parentMenu: 'thai',
+      addOnsName: 'Oven Roasted Eggplant',
+      price: '50',
       status: 'Active',
     },
     {
       key: 5,
-      categoryImage:
+      addOnsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      categoryMenu: 'Maxican spicy',
-      parentMenu: 'Chicken item',
+      addOnsName: 'Maxican spicy',
+      price: '20',
       status: 'Active',
     },
   ];
 
   function handleEditCategory(record) {
-    setVisible(true);
     console.log('Edit', record);
-    // message.success({
-    //   content: 'Foods category added successfully ',
-    //   className: 'custom-class',
-    //   duration: 1,
-    //   style: {
-    //     marginTop: '5vh',
-    //     float: 'right',
-    //   },
-    // });
+    message.success({
+      content: 'Foods category added successfully ',
+      className: 'custom-class',
+      duration: 1,
+      style: {
+        marginTop: '5vh',
+        float: 'right',
+      },
+    });
   }
   function handleDeleteCategory(record) {
     console.log('Delete', record);
@@ -146,32 +143,17 @@ const CategoryList = () => {
   }
 
   return (
-    <>
-      <div
-        style={{ backgroundColor: '#ddd', marginTop: '5rem', padding: '2rem' }}
-      >
-        <Table
-          columns={columns}
-          rowSelection={{ ...rowSelection, checkStrictly }}
-          dataSource={data}
-          pagination={false}
-        />
-      </div>
-
-      <Modal
-        title="Update Category"
-        centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-        width={1000}
-      >
-        <div style={{ padding: '2rem' }}>
-          <AddCategory />
-        </div>
-      </Modal>
-    </>
+    <div
+      style={{ backgroundColor: '#ddd', marginTop: '5rem', padding: '2rem' }}
+    >
+      <Table
+        columns={columns}
+        rowSelection={{ ...rowSelection, checkStrictly }}
+        dataSource={data}
+        pagination={false}
+      />
+    </div>
   );
 };
 
-export default CategoryList;
+export default AddOnsList;
