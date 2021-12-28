@@ -1,22 +1,23 @@
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
+import CustomRow from 'components/partials/CustomRow';
 import React from 'react';
-import AddonsList from '../../components/AddonsList/index';
-import Header from '../../components/partials/Header/index';
-import Sidebar from '../../components/partials/Sidebar/index';
+import AddonsList from '../../components/AddonsList';
+import Header from '../../components/partials/Header';
+import Sidebar from '../../components/partials/Sidebar';
 
 const AllAddonsList = () => {
   return (
     <>
       <Header />
 
-      <Row style={{ height: 'calc(100vh - 64px)', paddingTop: 83 }}>
+      <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
         <Col span={19}>
           <AddonsList />
         </Col>
-      </Row>
+      </CustomRow>
     </>
   );
 };

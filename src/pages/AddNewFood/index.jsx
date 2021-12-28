@@ -1,5 +1,6 @@
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
 import React from 'react';
+import CustomRow from '../../components/partials/CustomRow';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -8,14 +9,14 @@ const AddNewFood = () => {
     <>
       <Header />
 
-      <Row style={{ height: 'calc(100vh - 64px)', paddingTop: 83 }}>
+      <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
         <Col span={19}>
           <h1>Coming Soon</h1>
         </Col>
-      </Row>
+      </CustomRow>
     </>
   );
 };
