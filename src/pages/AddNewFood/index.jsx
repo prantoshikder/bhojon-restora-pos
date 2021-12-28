@@ -1,8 +1,10 @@
 import { Col } from 'antd';
+import AddedNewFood from 'components/AddedNewFood';
 import React from 'react';
+import Heading from '../../components/Heading';
 import CustomRow from '../../components/partials/CustomRow';
-import Header from '../../components/partials/Header/index';
-import Sidebar from '../../components/partials/Sidebar/index';
+import Header from '../../components/partials/Header';
+import Sidebar from '../../components/partials/Sidebar';
 
 const AddNewFood = () => {
   return (
@@ -14,7 +16,8 @@ const AddNewFood = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
-          <h1>Coming Soon</h1>
+          <Heading title="Add New Food" />
+          <AddedNewFood />
         </Col>
       </CustomRow>
     </>

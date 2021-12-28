@@ -1,8 +1,4 @@
-import {
-  InfoCircleOutlined,
-  PictureOutlined,
-  UploadOutlined,
-} from '@ant-design/icons';
+import { InfoCircleOutlined, PictureOutlined } from '@ant-design/icons';
 import {
   Button,
   Checkbox,
@@ -19,14 +15,14 @@ import {
 } from 'antd';
 import moment from 'moment';
 import React, { useState } from 'react';
-import './AddCategory.style.scss';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
-const AddCategory = () => {
+const AddedNewFood = () => {
   const [form] = Form.useForm();
   const [value, setValue] = useState('');
+  const [menuType, setMenuType] = useState('');
   const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
@@ -53,8 +49,13 @@ const AddCategory = () => {
   };
 
   const onChange = (e) => {
-    console.log('radio checked', e.target.value);
+    console.log('status', e.target.value);
     setValue(e.target.value);
+  };
+
+  const changesMenuType = (e) => {
+    console.log('menuType', e.target.value);
+    setMenuType(e.target.value);
   };
 
   const handleReset = () => {
@@ -82,7 +83,7 @@ const AddCategory = () => {
   };
 
   return (
-    <div className="site-card-wrapper">
+    <>
       <Form form={form} layout="vertical">
         <Row
           // gutter={[48, 0]}
@@ -93,27 +94,42 @@ const AddCategory = () => {
             boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
           }}
         >
-          <Col span={16}>
-            <Form.Item label="Category name" required>
-              <Input placeholder="category name" size="large" />
+          <Col span={12}>
+            <Form.Item label="Food Name" required>
+              <Input placeholder="food name" size="large" />
             </Form.Item>
 
-            <Form.Item name="parent category" label="Parent Category">
+            <Form.Item name="select category" label="Select Category">
               <Select
                 placeholder="Select a option"
                 onChange={onGenderChange}
                 size="large"
                 allowClear
               >
-                <Option value="male">Lunch Package</Option>
-                <Option value="female">Japanese</Option>
-                <Option value="other">Salad</Option>
-                <Option value="other">Indian Food</Option>
-                <Option value="other">Dinner Package</Option>
+                <Option value="lunch-package">Lunch Package</Option>
+                <Option value="japanese">Japanese</Option>
+                <Option value="salad">Salad</Option>
+                <Option value="indian-food">Indian Food</Option>
+                <Option value="dinner-package">Dinner Package</Option>
               </Select>
             </Form.Item>
 
-            <Form.Item label="Upload Category Image">
+            <Form.Item name="select itchen" label="Select Kitchen">
+              <Select
+                placeholder="Select a option"
+                onChange={onGenderChange}
+                size="large"
+                allowClear
+              >
+                <Option value="kitchen:1">Common</Option>
+                <Option value="kitchen:2">MAIN</Option>
+                <Option value="kitchen:3">Maxcian</Option>
+                <Option value="kitchen:4">Italian</Option>
+                <Option value="kitchen:5">Chinese</Option>
+              </Select>
+            </Form.Item>
+
+            <Form.Item label="Upload Food Image">
               <Row gutter={20}>
                 <Col span={16}>
                   <Form.Item
@@ -142,39 +158,20 @@ const AddCategory = () => {
             </Form.Item>
           </Col>
 
-          <Col span={8}>
+          <Col span={12}>
             <div style={{ paddingLeft: '2rem' }}>
-              <Form.Item
-                label="Category Background Color"
-                tooltip={{
-                  title:
-                    'Change category menu background color that will be shown in the POS',
-                  icon: <InfoCircleOutlined />,
-                }}
-              >
-                <Input
-                  type="color"
-                  size="large"
-                  value={color}
-                  name="color"
-                  onChange={(e) => setColor(e.target.value)}
-                />
+              <Form.Item label="Description">
+                <Input placeholder="description" size="large" />
               </Form.Item>
 
               <Form.Item
-                label="Category Icon"
+                label="Vat"
                 tooltip={{
-                  title: 'Add category icon',
+                  title: 'Vat are always calculate percent like:5 means:5%',
                   icon: <InfoCircleOutlined />,
                 }}
               >
-                <Upload
-                  // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                  listType="picture"
-                  defaultFileList={[...fileList]}
-                >
-                  <Button icon={<UploadOutlined />}>Upload</Button>
-                </Upload>
+                <Input placeholder="vat" size="large" />
               </Form.Item>
 
               <Form.Item name="offer" valuePropName="checked">
@@ -189,8 +186,18 @@ const AddCategory = () => {
 
               <Form.Item label="Status" valuePropName="checked">
                 <Radio.Group onChange={onChange} value={value}>
-                  <Radio value={1}>Active</Radio>
-                  <Radio value={2}>Inactive</Radio>
+                  <Radio value="active">Active</Radio>
+                  <Radio value="inActive">Inactive</Radio>
+                </Radio.Group>
+              </Form.Item>
+
+              <Form.Item label="Menu Type" valuePropName="checked">
+                <Radio.Group onChange={changesMenuType} value={menuType}>
+                  <Radio value="party">Party</Radio>
+                  <Radio value="coffee">Coffee</Radio>
+                  <Radio value="dinner">Dinner</Radio>
+                  <Radio value="lunch">Lunch</Radio>
+                  <Radio value="breakFast">Breakfast</Radio>
                 </Radio.Group>
               </Form.Item>
 
@@ -215,8 +222,8 @@ const AddCategory = () => {
           </Col>
         </Row>
       </Form>
-    </div>
+    </>
   );
 };
 
-export default AddCategory;
+export default AddedNewFood;

@@ -15,6 +15,7 @@ const AddNewAddons = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
+          <Heading title="Add New Add-ons" />
           <AddonsAdd />
         </Col>
       </CustomRow>
