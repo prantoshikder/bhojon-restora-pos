@@ -1,9 +1,8 @@
-import { Col, Row } from 'antd';
+import { Col, Header, Row } from 'antd';
 import React from 'react';
-import Header from '../../components/partials/Header';
-import Sidebar from '../../components/partials/Sidebar';
+import Sidebar from '../../components/partials/Sidebar/index';
 
-const Home = () => {
+const Report = () => {
   return (
     <>
       <Header />
@@ -21,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Report;

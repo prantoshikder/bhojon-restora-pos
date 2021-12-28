@@ -23,9 +23,9 @@ const Sidebar = ({ home }) => {
       {home ? (
         <Menu
           theme="dark"
-          // style={{
-          //   height: '100%',
-          // }}
+          style={{
+            height: '100%',
+          }}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -47,7 +47,6 @@ const Sidebar = ({ home }) => {
         <Menu
           theme="dark"
           style={{
-            width: 256,
             height: '100%',
           }}
           mode="inline"
@@ -77,6 +76,10 @@ const Sidebar = ({ home }) => {
               </Menu.Item>
             </SubMenu>
           </SubMenu>
+
+          <Menu.Item key="reports">
+            <Link to="/report">Reports</Link>
+          </Menu.Item>
         </Menu>
       )}
     </div>
