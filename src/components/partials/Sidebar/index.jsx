@@ -19,13 +19,15 @@ const Sidebar = ({ home }) => {
   };
 
   return (
-    <div style={{ height: '100%', width: 256 }}>
+    <div
+      style={{ height: 'calc(100vh - 83px)', width: 256, position: 'fixed' }}
+    >
       {home ? (
         <Menu
           theme="dark"
-          // style={{
-          //   height: '100%',
-          // }}
+          style={{
+            height: '100%',
+          }}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -47,7 +49,6 @@ const Sidebar = ({ home }) => {
         <Menu
           theme="dark"
           style={{
-            width: 256,
             height: '100%',
           }}
           mode="inline"
