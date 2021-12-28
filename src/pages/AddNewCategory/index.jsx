@@ -1,11 +1,10 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import AddCategory from '../../components/AddCategory';
-import CategoryList from '../../components/CategoryList';
+import AddCategory from '../../components/AddCategory/index';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
-const FoodManagement = () => {
+const AddNewCategory = () => {
   return (
     <>
       <Header />
@@ -16,12 +15,10 @@ const FoodManagement = () => {
         </Col>
         <Col span={16} offset={2}>
           <AddCategory />
-
-          <CategoryList />
         </Col>
       </Row>
     </>
   );
 };
 
-export default FoodManagement;
+export default AddNewCategory;
