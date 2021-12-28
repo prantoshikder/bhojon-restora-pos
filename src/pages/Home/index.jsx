@@ -13,7 +13,7 @@ const Home = () => {
           <Sidebar home />
         </Col>
 
-        <Col span={16} offset={2}>
+        <Col span={19}>
           <h1>Coming soon</h1>
         </Col>
       </Row>

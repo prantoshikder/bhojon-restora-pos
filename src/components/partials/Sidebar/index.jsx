@@ -78,6 +78,10 @@ const Sidebar = ({ home }) => {
               </Menu.Item>
             </SubMenu>
           </SubMenu>
+
+          <Menu.Item key="reports">
+            <Link to="/report">Reports</Link>
+          </Menu.Item>
         </Menu>
       )}
     </div>
