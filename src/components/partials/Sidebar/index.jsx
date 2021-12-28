@@ -25,10 +25,9 @@ const Sidebar = () => {
   return (
     <div style={{ height: '100%' }}>
       <Menu
+        theme="dark"
         style={{
           width: 256,
-          backgroundColor: '#020730',
-          color: '#fff',
           height: '100%',
         }}
         mode="inline"

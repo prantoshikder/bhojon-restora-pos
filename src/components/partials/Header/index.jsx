@@ -7,7 +7,7 @@ const Header = () => {
       style={{
         backgroundColor: '#0f71c5',
         width: '100%',
-        padding: '1rem 0.4rem',
+        padding: '3rem 1.2rem 1rem',
       }}
     >
       <div>

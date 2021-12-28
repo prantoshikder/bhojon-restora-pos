@@ -6,7 +6,7 @@ import FoodManagement from '../manageCategory/index';
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Header />
 
       <Row style={{ height: 'calc(100vh - 64px)' }}>
@@ -17,7 +17,7 @@ const Home = () => {
           <FoodManagement />
         </Col>
       </Row>
-    </div>
+    </>
   );
 };
 
