@@ -55,28 +55,26 @@ const Sidebar = ({ home }) => {
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          <SubMenu key="food_management" title="Food Management">
-            <Menu.Item key="add_new_food:1">
-              <Link to="/add-new-food">Add New Food</Link>
+          <Menu.Item key="add_new_food:1">
+            <Link to="/add-new-food">Add New Food</Link>
+          </Menu.Item>
+
+          <SubMenu key="manage_category" title="Manage Category">
+            <Menu.Item key="manage_category:1">
+              <Link to="/add-new-category">Add New Category</Link>
             </Menu.Item>
+            <Menu.Item key="manage_category:2">
+              <Link to="/category-list">All Categories</Link>
+            </Menu.Item>
+          </SubMenu>
 
-            <SubMenu key="manage_category" title="Manage Category">
-              <Menu.Item key="manage_category:1">
-                <Link to="/add-new-category">Add New Category</Link>
-              </Menu.Item>
-              <Menu.Item key="manage_category:2">
-                <Link to="/category-list">All Categories</Link>
-              </Menu.Item>
-            </SubMenu>
-
-            <SubMenu key="manage_addons" title="Manage Add-ons">
-              <Menu.Item key="manage_addons:1">
-                <Link to="/add-new-addons">Add New Addons</Link>
-              </Menu.Item>
-              <Menu.Item key="manage_addons:2">
-                <Link to="/addons-list">All Addons Lists</Link>
-              </Menu.Item>
-            </SubMenu>
+          <SubMenu key="manage_addons" title="Manage Add-ons">
+            <Menu.Item key="manage_addons:1">
+              <Link to="/add-new-addons">Add New Addons</Link>
+            </Menu.Item>
+            <Menu.Item key="manage_addons:2">
+              <Link to="/addons-list">All Addons Lists</Link>
+            </Menu.Item>
           </SubMenu>
 
           <Menu.Item key="report">
