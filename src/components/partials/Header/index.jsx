@@ -11,10 +11,14 @@ const Header = () => {
       }}
     >
       <div>
-        <Button>POS Order</Button>
-        <Button>Ongoing Order</Button>
-        <Button disabled>Today Order</Button>
-        <Button disabled>Online Order</Button>
+        <Button style={{ marginRight: '0.8rem' }}>POS Order</Button>
+        <Button style={{ marginRight: '0.8rem' }}>Ongoing Order</Button>
+        <Button style={{ marginRight: '0.8rem' }} disabled>
+          Today Order
+        </Button>
+        <Button style={{ marginRight: '0.8rem' }} disabled>
+          Online Order
+        </Button>
       </div>
     </div>
   );

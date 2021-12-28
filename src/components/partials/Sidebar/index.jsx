@@ -4,14 +4,14 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 
 const { SubMenu } = Menu;
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
 const Sidebar = () => {
-  const [openKeys, setOpenKeys] = React.useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -35,15 +35,7 @@ const Sidebar = () => {
         openKeys={openKeys}
         onOpenChange={onOpenChange}
       >
-        <Menu.Item
-          key="sub1"
-          icon={<MailOutlined />}
-          // style={{
-          //   backgroundColor: '#007023',
-          //   color: '#fff',
-          //   width: '100%',
-          // }}
-        >
+        <Menu.Item key="sub1" icon={<MailOutlined />}>
           All Category
         </Menu.Item>
 
