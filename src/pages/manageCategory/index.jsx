@@ -1,7 +1,6 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import AddCategory from '../../components/AddCategory';
-import CategoryList from '../../components/CategoryList';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -14,10 +13,8 @@ const FoodManagement = () => {
         <Col span={4}>
           <Sidebar />
         </Col>
-        <Col span={16} offset={2}>
+        <Col span={19}>
           <AddCategory />
-
-          <CategoryList />
         </Col>
       </Row>
     </>

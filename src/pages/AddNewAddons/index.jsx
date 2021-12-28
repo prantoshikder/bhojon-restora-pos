@@ -13,7 +13,7 @@ const AddNewAddons = () => {
         <Col span={4}>
           <Sidebar />
         </Col>
-        <Col span={16} offset={2}>
+        <Col span={19}>
           <AddOnsAdd />
         </Col>
       </Row>
