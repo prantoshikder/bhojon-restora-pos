@@ -1,5 +1,13 @@
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+  height: auto;
+}
+
 .system-menu {
-  .ant-menu-horizontal {
+  &.ant-menu-horizontal {
     line-height: 30px;
   }
 }
