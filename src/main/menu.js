@@ -1,16 +1,6 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
-
-const getData = () => {
-  const win = new BrowserWindow({ width: 800, height: 600, modal: false });
-  console.log('Hello temp');
-  win
-    .loadFile('../NewCategory.jsx')
-    .then((res) => {
-      console.log('res', res);
-      return res.join();
-    })
-    .then((result) => console.log('result', result));
-};
+const path = require('path');
+const fs = require('fs');
 
 let mainWin;
 
@@ -21,6 +11,7 @@ function createMainWindow() {
     minimizable: true,
     fullscreenable: true,
     modal: true,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -29,9 +20,11 @@ function createMainWindow() {
     },
   });
 
-  mainWin.loadFile(path.join(__dirname, 'assests/html/index.html')); //defining the parent window html file
+  // mainWin.loadFile(path.join(__dirname, 'assests/html/index.html')); //defining the parent window html file
   mainWin.maximize();
   mainWin.setMenuBarVisibility(false);
+  mainWin.removeMenu(null);
+  mainWin.setMenu(null);
 }
 
 export default class MenuBuilder {
@@ -216,15 +209,12 @@ export default class MenuBuilder {
   }
 
   buildDefaultTemplate() {
-    const templateDefault = [
+    let templateDefault = [
       {
         label: '&View',
         submenu: [
           {
             label: '&Foods...',
-            click() {
-              console.log('item 1 clicked');
-            },
             // accelerator: 'Ctrl+O',
           },
           {
@@ -235,8 +225,29 @@ export default class MenuBuilder {
             label: '&Food Management',
             // accelerator: 'Ctrl+O',
             click: () => {
-              getData();
-              Z;
+              const about = `${path.dirname(__dirname)}/public/about.html`;
+
+              const win = new BrowserWindow({
+                resizable: true,
+                title: 'Login - Dhaka Restaurant',
+                minimizable: true,
+                fullscreenable: true,
+              });
+
+              const hello = `${path.dirname(__dirname)}/pages/hello.html`;
+
+              // console.log('mainWin', win.loadFile(hello));
+              // this.mainWindow.loadFile(hello);
+              this.mainWindow.loadFile(hello);
+              console.log('mainwin', this.mainWindow.loadFile(hello));
+
+              // mainWin.loadFile(path.join(__dirname, '/pages/hello.html'));
+              // mainWin.maximize();
+              // mainWin.setMenuBarVisibility(false);
+              // win.loadFile(`${path.dirname(__dirname)}/pages/hello.html`);
+
+              // console.log(mainWin);
+              // mainWin.loadFile(`${path.dirname(__dirname)}/public/about.html`);
             },
           },
           {
@@ -348,6 +359,6 @@ export default class MenuBuilder {
       },
     ];
 
-    return templateDefault;
+    return (templateDefault = []);
   }
 }
