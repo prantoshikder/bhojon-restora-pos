@@ -19,14 +19,13 @@ const Sidebar = ({ home }) => {
   };
 
   return (
-    <div style={{ height: '100%' }}>
+    <div style={{ height: '100%', width: 256 }}>
       {home ? (
         <Menu
           theme="dark"
-          style={{
-            width: 256,
-            height: '100%',
-          }}
+          // style={{
+          //   height: '100%',
+          // }}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -78,24 +77,6 @@ const Sidebar = ({ home }) => {
               </Menu.Item>
             </SubMenu>
           </SubMenu>
-
-          <Menu.Item key="4">Salad Thai</Menu.Item>
-          <Menu.Item key="5">Chicken Sharma</Menu.Item>
-          <Menu.Item key="6">Chowmein</Menu.Item>
-
-          <SubMenu key="sub3" title="Demo">
-            <Menu.Item key="7">Option 6</Menu.Item>
-          </SubMenu>
-
-          <SubMenu key="sub4" title="Chicken Item">
-            <Menu.Item key="8">Option 9</Menu.Item>
-            <Menu.Item key="9">Option 10</Menu.Item>
-            <Menu.Item key="10">Option 11</Menu.Item>
-            <Menu.Item key="11">Option 12</Menu.Item>
-          </SubMenu>
-
-          <Menu.Item key="12">Appetizer</Menu.Item>
-          <Menu.Item key="13">Salad</Menu.Item>
         </Menu>
       )}
     </div>

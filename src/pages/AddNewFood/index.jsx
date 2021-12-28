@@ -12,7 +12,7 @@ const AddNewFood = () => {
         <Col span={4}>
           <Sidebar />
         </Col>
-        <Col span={16} offset={2}>
+        <Col span={19}>
           <h1>Coming Soon</h1>
         </Col>
       </Row>

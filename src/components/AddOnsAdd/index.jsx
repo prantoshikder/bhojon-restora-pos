@@ -1,8 +1,8 @@
 import { Button, Col, Form, Input, message, Radio, Row } from 'antd';
 import React, { useState } from 'react';
-import './AddOnsAdd.style.scss';
+import './AddonsAdd.style.scss';
 
-const AddOnsAdd = () => {
+const AddonsAdd = () => {
   const [form] = Form.useForm();
   const [value, setValue] = useState('');
 
@@ -91,4 +91,4 @@ const AddOnsAdd = () => {
   );
 };
 
-export default AddOnsAdd;
+export default AddonsAdd;

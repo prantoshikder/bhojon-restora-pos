@@ -1,7 +1,7 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Button, Image, message, Space, Table } from 'antd';
 import React, { useState } from 'react';
-import './AddOnsList.style.scss';
+import './AddonsList.style.scss';
 
 const rowSelection = {
   onChange: (selectedRowKeys, selectedRows) => {
@@ -19,27 +19,27 @@ const rowSelection = {
   },
 };
 
-const AddOnsList = () => {
+const AddonsList = () => {
   const [checkStrictly, setCheckStrictly] = useState(false);
 
   const columns = [
     {
       title: 'Add-ons Image',
-      dataIndex: 'addOnsImage',
-      key: 'addOnsImage',
+      dataIndex: 'addonsImage',
+      key: 'addonsImage',
       render: (text, record) => (
         <Image
-          src={record.addOnsImage}
+          src={record.addonsImage}
           width="50px"
           height="50px"
-          className="addOns-image"
+          className="addons-image"
         />
       ),
     },
     {
       title: 'Add-ons Name',
-      dataIndex: 'addOnsName',
-      key: 'addOnsName',
+      dataIndex: 'addonsName',
+      key: 'addonsName',
       width: '30%',
     },
     {
@@ -77,41 +77,41 @@ const AddOnsList = () => {
   const data = [
     {
       key: 1,
-      addOnsImage:
+      addonsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      addOnsName: 'Soup N Salads',
+      addonsName: 'Soup N Salads',
       price: '	15',
       status: 'Active',
     },
     {
       key: 2,
-      addOnsImage:
+      addonsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      addOnsName: 'Salad (Thai)',
+      addonsName: 'Salad (Thai)',
       price: '25',
       status: 'Active',
     },
     {
       key: 3,
-      addOnsImage:
+      addonsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      addOnsName: 'Prawn & Fish Dishes',
+      addonsName: 'Prawn & Fish Dishes',
       price: '35',
       status: 'Active',
     },
     {
       key: 4,
-      addOnsImage:
+      addonsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      addOnsName: 'Oven Roasted Eggplant',
+      addonsName: 'Oven Roasted Eggplant',
       price: '50',
       status: 'Active',
     },
     {
       key: 5,
-      addOnsImage:
+      addonsImage:
         'https://spokeherd.com/wp-content/uploads/2021/06/ingredients-healthy-foods-selection-set-up_35641-3104.jpg',
-      addOnsName: 'Maxican spicy',
+      addonsName: 'Maxican spicy',
       price: '20',
       status: 'Active',
     },
@@ -161,4 +161,4 @@ const AddOnsList = () => {
   );
 };
 
-export default AddOnsList;
+export default AddonsList;
