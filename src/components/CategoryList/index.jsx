@@ -150,7 +150,7 @@ const CategoryList = () => {
       <div
         style={{
           backgroundColor: '#f7f7f7',
-          marginTop: '5rem',
+          marginTop: '3rem',
           padding: '2rem',
           boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
         }}

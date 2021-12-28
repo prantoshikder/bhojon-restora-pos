@@ -146,7 +146,7 @@ const AddonsList = () => {
     <div
       style={{
         backgroundColor: '#f7f7f7',
-        marginTop: '2rem',
+        marginTop: '3rem',
         padding: '2rem',
         boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
       }}

@@ -1,5 +1,6 @@
 import { Col, Row } from 'antd';
 import React from 'react';
+import Heading from '../../components/Heading/index';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
 
@@ -14,6 +15,7 @@ const Report = () => {
         </Col>
 
         <Col span={19}>
+          <Heading title="Reports" />
           <h1>Coming soon</h1>
         </Col>
       </Row>

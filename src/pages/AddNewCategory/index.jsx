@@ -1,6 +1,7 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import AddCategory from '../../components/AddCategory/index';
+import Heading from '../../components/Heading/index';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -14,6 +15,7 @@ const AddNewCategory = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
+          <Heading title="Add New Category" />
           <AddCategory />
         </Col>
       </Row>

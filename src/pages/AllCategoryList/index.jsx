@@ -1,6 +1,7 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import CategoryList from '../../components/CategoryList';
+import Heading from '../../components/Heading/index';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -14,6 +15,7 @@ const AllCategoryList = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
+          <Heading title="All Category List" />
           <CategoryList />
         </Col>
       </Row>
