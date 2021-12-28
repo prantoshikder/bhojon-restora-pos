@@ -148,7 +148,12 @@ const CategoryList = () => {
   return (
     <>
       <div
-        style={{ backgroundColor: '#ddd', marginTop: '5rem', padding: '2rem' }}
+        style={{
+          backgroundColor: '#f7f7f7',
+          marginTop: '5rem',
+          padding: '2rem',
+          boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
+        }}
       >
         <Table
           columns={columns}
