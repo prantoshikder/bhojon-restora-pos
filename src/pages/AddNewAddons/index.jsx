@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import AddOnsAdd from '../../components/AddOnsAdd';
+import AddonsAdd from '../../components/AddonsAdd';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -14,7 +14,7 @@ const AddNewAddons = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
-          <AddOnsAdd />
+          <AddonsAdd />
         </Col>
       </Row>
     </>
