@@ -89,7 +89,7 @@ const AddCategory = () => {
           style={{
             backgroundColor: '#f7f7f7',
             padding: '2rem 1rem',
-            marginTop: '1rem',
+            marginTop: '3rem',
             boxShadow: 'rgba(0, 0, 0, 0.20) 0px 3px 15px',
           }}
         >
