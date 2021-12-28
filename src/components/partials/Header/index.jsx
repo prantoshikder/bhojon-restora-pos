@@ -8,21 +8,21 @@ const Header = () => {
       style={{
         backgroundColor: '#0f71c5',
         width: '100%',
-        padding: '3rem 1.2rem 1rem',
+        padding: '2.5rem 1.2rem 0.7rem',
+        zIndex: 1,
+        position: 'fixed',
       }}
     >
-      <div>
-        <Button style={{ marginRight: '0.8rem' }}>
-          <Link to="/">POS System</Link>
-        </Button>
-        <Button style={{ marginRight: '0.8rem' }}>Ongoing Order</Button>
-        <Button style={{ marginRight: '0.8rem' }} disabled>
-          Today Order
-        </Button>
-        <Button style={{ marginRight: '0.8rem' }} disabled>
-          Online Order
-        </Button>
-      </div>
+      <Button style={{ marginRight: '0.8rem' }}>
+        <Link to="/">POS System</Link>
+      </Button>
+      <Button style={{ marginRight: '0.8rem' }}>Ongoing Order</Button>
+      <Button style={{ marginRight: '0.8rem' }} disabled>
+        Today Order
+      </Button>
+      <Button style={{ marginRight: '0.8rem' }} disabled>
+        Online Order
+      </Button>
     </div>
   );
 };
