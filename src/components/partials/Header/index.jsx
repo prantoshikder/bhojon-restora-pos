@@ -1,5 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -11,7 +12,9 @@ const Header = () => {
       }}
     >
       <div>
-        <Button style={{ marginRight: '0.8rem' }}>POS Order</Button>
+        <Button style={{ marginRight: '0.8rem' }}>
+          <Link to="/">POS System</Link>
+        </Button>
         <Button style={{ marginRight: '0.8rem' }}>Ongoing Order</Button>
         <Button style={{ marginRight: '0.8rem' }} disabled>
           Today Order
