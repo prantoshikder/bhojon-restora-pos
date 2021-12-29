@@ -1,4 +1,5 @@
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
+import CustomRow from 'components/partials/CustomRow';
 import React from 'react';
 import AddCategory from '../../components/AddCategory';
 import Heading from '../../components/Heading';
@@ -10,7 +11,7 @@ const AddNewCategory = () => {
     <>
       <Header />
 
-      <Row style={{ height: 'calc(100vh - 64px)', paddingTop: 83 }}>
+      <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
@@ -18,7 +19,7 @@ const AddNewCategory = () => {
           <Heading title="Add New Category" />
           <AddCategory />
         </Col>
-      </Row>
+      </CustomRow>
     </>
   );
 };

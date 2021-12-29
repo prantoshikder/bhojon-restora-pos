@@ -1,7 +1,8 @@
-import { Col, Row } from 'antd';
+import { Col } from 'antd';
+import AddedNewFood from 'components/AddedNewFood';
 import React from 'react';
-import AddedNewFood from '../../components/AddedNewFood';
 import Heading from '../../components/Heading';
+import CustomRow from '../../components/partials/CustomRow';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
 
@@ -10,7 +11,7 @@ const AddNewFood = () => {
     <>
       <Header />
 
-      <Row style={{ height: 'calc(100vh - 64px)', paddingTop: 83 }}>
+      <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
@@ -18,7 +19,7 @@ const AddNewFood = () => {
           <Heading title="Add New Food" />
           <AddedNewFood />
         </Col>
-      </Row>
+      </CustomRow>
     </>
   );
 };
