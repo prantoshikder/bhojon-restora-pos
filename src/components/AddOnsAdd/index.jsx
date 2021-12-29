@@ -35,14 +35,15 @@ const AddonsAdd = () => {
     });
   };
 
-  const handleAddNewAddons = () => {};
-  const onFinishFailed = () => {};
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
     <div className="addOns-wrapper">
       <Form
         form={form}
-        onFinish={handleAddNewAddons}
+        onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
         layout="vertical"
@@ -57,11 +58,29 @@ const AddonsAdd = () => {
           }}
         >
           <Col span={16}>
-            <Form.Item label="Add-ons Name" required>
+            <Form.Item
+              label="Add-ons Name"
+              name="addonsName"
+              rules={[
+                {
+                  required: true,
+                  message: 'Add-ons name is required',
+                },
+              ]}
+            >
               <Input placeholder="Add-ons Name" size="large" />
             </Form.Item>
 
-            <Form.Item label="Price" required>
+            <Form.Item
+              label="Price"
+              name="price"
+              rules={[
+                {
+                  required: true,
+                  message: 'Price is required',
+                },
+              ]}
+            >
               <Input placeholder="Price" size="large" />
             </Form.Item>
           </Col>
@@ -85,7 +104,7 @@ const AddonsAdd = () => {
                 >
                   Reset
                 </Button>
-                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>

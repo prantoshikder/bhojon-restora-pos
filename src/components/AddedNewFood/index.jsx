@@ -82,20 +82,20 @@ const AddedNewFood = () => {
     });
   };
 
-  const handleAddNewFood = () => {};
-  const onFinishFailed = () => {};
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
     <>
       <Form
         form={form}
-        onFinish={handleAddNewFood}
+        onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
         layout="vertical"
       >
         <Row
-          // gutter={[48, 0]}
           style={{
             backgroundColor: '#f7f7f7',
             padding: '2rem 1rem',
@@ -104,7 +104,17 @@ const AddedNewFood = () => {
           }}
         >
           <Col span={12}>
-            <Form.Item label="Food Name" required>
+            <Form.Item
+              label="Food Name"
+              name="foodName"
+              rules={[
+                {
+                  required: true,
+                  message: 'Food name is required',
+                },
+              ]}
+              required
+            >
               <Input placeholder="Food Name" size="large" />
             </Form.Item>
 
@@ -115,11 +125,11 @@ const AddedNewFood = () => {
                 size="large"
                 allowClear
               >
-                <Option value="lunch-package">Lunch Package</Option>
+                <Option value="lunch_package">Lunch Package</Option>
                 <Option value="japanese">Japanese</Option>
                 <Option value="salad">Salad</Option>
-                <Option value="indian-food">Indian Food</Option>
-                <Option value="dinner-package">Dinner Package</Option>
+                <Option value="indian_food">Indian Food</Option>
+                <Option value="dinner_package">Dinner Package</Option>
               </Select>
             </Form.Item>
 
@@ -132,7 +142,7 @@ const AddedNewFood = () => {
               >
                 <Option value="kitchen:1">Common</Option>
                 <Option value="kitchen:2">MAIN</Option>
-                <Option value="kitchen:3">Maxcian</Option>
+                <Option value="kitchen:3">Mexican</Option>
                 <Option value="kitchen:4">Italian</Option>
                 <Option value="kitchen:5">Chinese</Option>
               </Select>
@@ -220,7 +230,7 @@ const AddedNewFood = () => {
                 >
                   Reset
                 </Button>
-                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>
