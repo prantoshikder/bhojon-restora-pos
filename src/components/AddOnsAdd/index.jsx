@@ -4,7 +4,7 @@ import './AddonsAdd.style.scss';
 
 const AddonsAdd = () => {
   const [form] = Form.useForm();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('active');
 
   const handleChangeStatus = (e) => {
     console.log('radio checked', e.target.value);
@@ -36,10 +36,17 @@ const AddonsAdd = () => {
   };
 
   const handleAddNewAddons = () => {};
+  const onFinishFailed = () => {};
 
   return (
     <div className="addOns-wrapper">
-      <Form form={form} conChange={handleAddNewAddons} layout="vertical">
+      <Form
+        form={form}
+        onFinish={handleAddNewAddons}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        layout="vertical"
+      >
         <Row
           // gutter={[48, 0]}
           style={{
@@ -63,8 +70,8 @@ const AddonsAdd = () => {
             <div style={{ paddingLeft: '2rem' }}>
               <Form.Item label="Status" valuePropName="checked">
                 <Radio.Group onChange={handleChangeStatus} value={value}>
-                  <Radio value={1}>Active</Radio>
-                  <Radio value={2}>Inactie</Radio>
+                  <Radio value="active">Active</Radio>
+                  <Radio value="inActive">Inactive</Radio>
                 </Radio.Group>
               </Form.Item>
 
@@ -78,7 +85,7 @@ const AddonsAdd = () => {
                 >
                   Reset
                 </Button>
-                <Button type="primary" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
                   Submit
                 </Button>
               </Form.Item>

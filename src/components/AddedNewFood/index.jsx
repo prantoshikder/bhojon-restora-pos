@@ -21,7 +21,7 @@ const { Option } = Select;
 
 const AddedNewFood = () => {
   const [form] = Form.useForm();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('active');
   const [menuType, setMenuType] = useState('');
   const [packageOffer, setPackageOffer] = useState('');
 
@@ -48,7 +48,7 @@ const AddedNewFood = () => {
     return current && current < moment().endOf('day');
   };
 
-  const onChange = (e) => {
+  const handleChangeStatus = (e) => {
     console.log('status', e.target.value);
     setValue(e.target.value);
   };
@@ -83,10 +83,17 @@ const AddedNewFood = () => {
   };
 
   const handleAddNewFood = () => {};
+  const onFinishFailed = () => {};
 
   return (
     <>
-      <Form form={form} onChange={handleAddNewFood} layout="vertical">
+      <Form
+        form={form}
+        onFinish={handleAddNewFood}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        layout="vertical"
+      >
         <Row
           // gutter={[48, 0]}
           style={{
@@ -98,7 +105,7 @@ const AddedNewFood = () => {
         >
           <Col span={12}>
             <Form.Item label="Food Name" required>
-              <Input placeholder="food name" size="large" />
+              <Input placeholder="Food Name" size="large" />
             </Form.Item>
 
             <Form.Item name="select category" label="Select Category">
@@ -163,7 +170,7 @@ const AddedNewFood = () => {
           <Col span={12}>
             <div style={{ paddingLeft: '2rem' }}>
               <Form.Item label="Description">
-                <Input.TextArea placeholder="description" size="large" />
+                <Input.TextArea placeholder="Description" size="large" />
               </Form.Item>
 
               <Form.Item
@@ -173,7 +180,7 @@ const AddedNewFood = () => {
                   icon: <InfoCircleOutlined />,
                 }}
               >
-                <Input placeholder="vat" size="large" />
+                <Input placeholder="Vat" size="large" />
               </Form.Item>
 
               <Form.Item name="offer" valuePropName="checked">
@@ -187,7 +194,7 @@ const AddedNewFood = () => {
               )}
 
               <Form.Item label="Status" valuePropName="checked">
-                <Radio.Group onChange={onChange} value={value}>
+                <Radio.Group onChange={handleChangeStatus} value={value}>
                   <Radio value="active">Active</Radio>
                   <Radio value="inActive">Inactive</Radio>
                 </Radio.Group>
@@ -213,7 +220,7 @@ const AddedNewFood = () => {
                 >
                   Reset
                 </Button>
-                <Button type="primary" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
                   Submit
                 </Button>
               </Form.Item>

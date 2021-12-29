@@ -26,7 +26,7 @@ const { Option } = Select;
 
 const AddCategory = () => {
   const [form] = Form.useForm();
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('active');
   const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
@@ -52,7 +52,7 @@ const AddCategory = () => {
     return current && current < moment().endOf('day');
   };
 
-  const onChange = (e) => {
+  const handleChangeStatus = (e) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
@@ -82,10 +82,17 @@ const AddCategory = () => {
   };
 
   const handleAddCategory = () => {};
+  const onFinishFailed = () => {};
 
   return (
     <div className="site-card-wrapper">
-      <Form form={form} onChange={handleAddCategory} layout="vertical">
+      <Form
+        form={form}
+        onFinish={handleAddCategory}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        layout="vertical"
+      >
         <Row
           // gutter={[48, 0]}
           style={{
@@ -97,12 +104,12 @@ const AddCategory = () => {
         >
           <Col span={16}>
             <Form.Item label="Category name" required>
-              <Input placeholder="category name" size="large" />
+              <Input placeholder="Category name" size="large" />
             </Form.Item>
 
             <Form.Item name="parent category" label="Parent Category">
               <Select
-                placeholder="Select a option"
+                placeholder="Select an option"
                 onChange={onGenderChange}
                 size="large"
                 allowClear
@@ -190,9 +197,9 @@ const AddCategory = () => {
               )}
 
               <Form.Item label="Status" valuePropName="checked">
-                <Radio.Group onChange={onChange} value={value}>
-                  <Radio value={1}>Active</Radio>
-                  <Radio value={2}>Inactive</Radio>
+                <Radio.Group onChange={handleChangeStatus} value={value}>
+                  <Radio value="active">Active</Radio>
+                  <Radio value="inActive">Inactive</Radio>
                 </Radio.Group>
               </Form.Item>
 
@@ -206,7 +213,7 @@ const AddCategory = () => {
                 >
                   Reset
                 </Button>
-                <Button type="primary" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
                   Submit
                 </Button>
               </Form.Item>
