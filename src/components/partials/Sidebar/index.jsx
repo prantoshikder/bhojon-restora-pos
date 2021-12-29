@@ -32,7 +32,7 @@ const Sidebar = ({ home }) => {
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          <Menu.Item key="sub1">All Category</Menu.Item>
+          <Menu.Item key="sub1">All Categories</Menu.Item>
 
           <Menu.Item key="1">Fast Food Item</Menu.Item>
 

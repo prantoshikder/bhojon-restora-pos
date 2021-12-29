@@ -1,5 +1,7 @@
 import { Col, Row } from 'antd';
 import React from 'react';
+import AddedNewFood from '../../components/AddedNewFood/index';
+import Heading from '../../components/Heading/index';
 import Header from '../../components/partials/Header/index';
 import Sidebar from '../../components/partials/Sidebar/index';
 
@@ -13,7 +15,8 @@ const AddNewFood = () => {
           <Sidebar />
         </Col>
         <Col span={19}>
-          <h1>Coming Soon</h1>
+          <Heading title="Add New Food" />
+          <AddedNewFood />
         </Col>
       </Row>
     </>
