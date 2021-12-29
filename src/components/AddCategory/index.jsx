@@ -32,6 +32,8 @@ const AddCategory = () => {
 
   const onGenderChange = () => {};
 
+  // insertCategory('categories', addNewcat);
+
   const normFile = (e) => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
@@ -81,11 +83,19 @@ const AddCategory = () => {
     });
   };
 
-  const handleAddCategory = () => {};
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
     <div className="site-card-wrapper">
-      <Form form={form} onChange={handleAddCategory} layout="vertical">
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={handleSubmit}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
         <Row
           // gutter={[48, 0]}
           style={{
@@ -96,13 +106,22 @@ const AddCategory = () => {
           }}
         >
           <Col span={16}>
-            <Form.Item label="Category name" required>
-              <Input placeholder="category name" size="large" />
+            <Form.Item
+              label="Category name"
+              name="categoryName"
+              rules={[
+                {
+                  required: true,
+                  message: 'Category name is required',
+                },
+              ]}
+            >
+              <Input placeholder="Category Name" size="large" />
             </Form.Item>
 
             <Form.Item name="parent category" label="Parent Category">
               <Select
-                placeholder="Select a option"
+                placeholder="Select an Option"
                 onChange={onGenderChange}
                 size="large"
                 allowClear
@@ -198,15 +217,16 @@ const AddCategory = () => {
 
               <Form.Item>
                 <Button
-                  type="danger"
+                  type="primary"
                   style={{
-                    marginRight: '1rem',
+                    marginRight: '0.6rem',
                   }}
                   onClick={handleReset}
+                  danger
                 >
                   Reset
                 </Button>
-                <Button type="primary" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>
