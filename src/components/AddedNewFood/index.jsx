@@ -23,7 +23,6 @@ const AddedNewFood = () => {
   const [form] = Form.useForm();
   const [value, setValue] = useState('');
   const [menuType, setMenuType] = useState('');
-  const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
   const onGenderChange = () => {};
@@ -161,7 +160,7 @@ const AddedNewFood = () => {
           <Col span={12}>
             <div style={{ paddingLeft: '2rem' }}>
               <Form.Item label="Description">
-                <Input placeholder="description" size="large" />
+                <Input.TextArea placeholder="description" size="large" />
               </Form.Item>
 
               <Form.Item

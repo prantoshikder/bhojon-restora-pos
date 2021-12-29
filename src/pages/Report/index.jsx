@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import Heading from '../../components/Heading/index';
+import Heading from '../../components/Heading';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
 

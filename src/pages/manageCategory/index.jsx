@@ -1,8 +1,8 @@
 import { Col, Row } from 'antd';
 import React from 'react';
 import AddCategory from '../../components/AddCategory';
-import Header from '../../components/partials/Header/index';
-import Sidebar from '../../components/partials/Sidebar/index';
+import Header from '../../components/partials/Header';
+import Sidebar from '../../components/partials/Sidebar';
 
 const FoodManagement = () => {
   return (

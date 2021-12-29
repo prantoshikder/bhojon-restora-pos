@@ -1,9 +1,9 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import AddonsList from '../../components/AddonsList/index';
-import Heading from '../../components/Heading/index';
-import Header from '../../components/partials/Header/index';
-import Sidebar from '../../components/partials/Sidebar/index';
+import AddonsList from '../../components/AddonsList';
+import Heading from '../../components/Heading';
+import Header from '../../components/partials/Header';
+import Sidebar from '../../components/partials/Sidebar';
 
 const AllAddonsList = () => {
   return (

@@ -1,9 +1,9 @@
 import { Col, Row } from 'antd';
 import React from 'react';
-import AddCategory from '../../components/AddCategory/index';
-import Heading from '../../components/Heading/index';
-import Header from '../../components/partials/Header/index';
-import Sidebar from '../../components/partials/Sidebar/index';
+import AddCategory from '../../components/AddCategory';
+import Heading from '../../components/Heading';
+import Header from '../../components/partials/Header';
+import Sidebar from '../../components/partials/Sidebar';
 
 const AddNewCategory = () => {
   return (
