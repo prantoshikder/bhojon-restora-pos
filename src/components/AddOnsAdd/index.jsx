@@ -70,12 +70,9 @@ const AddonsAdd = () => {
 
               <Form.Item>
                 <Button
-                  type=""
+                  type="danger"
                   style={{
                     marginRight: '1rem',
-                    backgroundColor: '#007023',
-                    color: '#fff',
-                    borderColor: '#007023',
                   }}
                   onClick={handleReset}
                 >
