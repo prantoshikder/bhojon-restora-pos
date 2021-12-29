@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 // submenu keys of first level
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
+const rootSubmenuKeys = [
+  'sub1',
+  'sub2',
+  'add_new_food:1',
+  'manage_category',
+  'manage_addons',
+  'report',
+];
 
 const Sidebar = ({ home }) => {
   const [openKeys, setOpenKeys] = useState(['sub1']);

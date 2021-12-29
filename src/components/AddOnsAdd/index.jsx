@@ -6,7 +6,7 @@ const AddonsAdd = () => {
   const [form] = Form.useForm();
   const [value, setValue] = useState('');
 
-  const onChange = (e) => {
+  const handleChangeStatus = (e) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
@@ -35,9 +35,11 @@ const AddonsAdd = () => {
     });
   };
 
+  const handleAddNewAddons = () => {};
+
   return (
     <div className="addOns-wrapper">
-      <Form form={form} layout="vertical">
+      <Form form={form} conChange={handleAddNewAddons} layout="vertical">
         <Row
           // gutter={[48, 0]}
           style={{
@@ -60,7 +62,7 @@ const AddonsAdd = () => {
           <Col span={8}>
             <div style={{ paddingLeft: '2rem' }}>
               <Form.Item label="Status" valuePropName="checked">
-                <Radio.Group onChange={onChange} value={value}>
+                <Radio.Group onChange={handleChangeStatus} value={value}>
                   <Radio value={1}>Active</Radio>
                   <Radio value={2}>Inactie</Radio>
                 </Radio.Group>
@@ -68,12 +70,9 @@ const AddonsAdd = () => {
 
               <Form.Item>
                 <Button
-                  type=""
+                  type="danger"
                   style={{
                     marginRight: '1rem',
-                    backgroundColor: '#007023',
-                    color: '#fff',
-                    borderColor: '#007023',
                   }}
                   onClick={handleReset}
                 >

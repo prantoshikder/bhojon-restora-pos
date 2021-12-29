@@ -23,10 +23,10 @@ const AddedNewFood = () => {
   const [form] = Form.useForm();
   const [value, setValue] = useState('');
   const [menuType, setMenuType] = useState('');
-  const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
-  const onGenderChange = () => {};
+  const handleSelectCategory = () => {};
+  const handleKitchenSelect = () => {};
 
   const normFile = (e) => {
     console.log('Upload event:', e);
@@ -82,9 +82,11 @@ const AddedNewFood = () => {
     });
   };
 
+  const handleAddNewFood = () => {};
+
   return (
     <>
-      <Form form={form} layout="vertical">
+      <Form form={form} onChange={handleAddNewFood} layout="vertical">
         <Row
           // gutter={[48, 0]}
           style={{
@@ -101,8 +103,8 @@ const AddedNewFood = () => {
 
             <Form.Item name="select category" label="Select Category">
               <Select
-                placeholder="Select a option"
-                onChange={onGenderChange}
+                placeholder="Select a category"
+                onChange={handleSelectCategory}
                 size="large"
                 allowClear
               >
@@ -114,10 +116,10 @@ const AddedNewFood = () => {
               </Select>
             </Form.Item>
 
-            <Form.Item name="select itchen" label="Select Kitchen">
+            <Form.Item name="select kitchen" label="Select Kitchen">
               <Select
-                placeholder="Select a option"
-                onChange={onGenderChange}
+                placeholder="Select a kitchen"
+                onChange={handleKitchenSelect}
                 size="large"
                 allowClear
               >
@@ -161,7 +163,7 @@ const AddedNewFood = () => {
           <Col span={12}>
             <div style={{ paddingLeft: '2rem' }}>
               <Form.Item label="Description">
-                <Input placeholder="description" size="large" />
+                <Input.TextArea placeholder="description" size="large" />
               </Form.Item>
 
               <Form.Item
@@ -203,12 +205,9 @@ const AddedNewFood = () => {
 
               <Form.Item>
                 <Button
-                  type=""
+                  type="danger"
                   style={{
                     marginRight: '1rem',
-                    backgroundColor: '#007023',
-                    color: '#fff',
-                    borderColor: '#007023',
                   }}
                   onClick={handleReset}
                 >

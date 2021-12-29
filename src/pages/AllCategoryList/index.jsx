@@ -1,8 +1,8 @@
 import { Col } from 'antd';
-import CustomRow from 'components/partials/CustomRow';
 import React from 'react';
 import CategoryList from '../../components/CategoryList';
-import Heading from '../../components/Heading/index';
+import Heading from '../../components/Heading';
+import CustomRow from '../../components/partials/CustomRow';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
 

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SystemMenu from '../components/partials/SystemMenu';
 import { Home } from '../pages';
-import AddNewAddons from '../pages/AddNewAddons/index';
+import AddNewAddons from '../pages/AddNewAddons';
 import AddNewCategory from '../pages/AddNewCategory';
 import AddNewFood from '../pages/AddNewFood';
-import AllAddonsList from '../pages/AllAddonsList/index';
-import AllCategoryList from '../pages/AllCategoryList/index';
+import AllAddonsList from '../pages/AllAddonsList';
+import AllCategoryList from '../pages/AllCategoryList';
 import FoodManagement from '../pages/manageCategory';
 import Report from '../pages/Report';
 
