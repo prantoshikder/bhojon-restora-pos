@@ -30,7 +30,7 @@ const AddCategory = () => {
   const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
-  const onGenderChange = () => {};
+  const handleSelectCategory = () => {};
 
   const normFile = (e) => {
     console.log('Upload event:', e);
@@ -81,20 +81,20 @@ const AddCategory = () => {
     });
   };
 
-  const handleAddCategory = () => {};
-  const onFinishFailed = () => {};
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
     <div className="site-card-wrapper">
       <Form
         form={form}
-        onFinish={handleAddCategory}
+        layout="vertical"
+        onFinish={handleSubmit}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
-        layout="vertical"
       >
         <Row
-          // gutter={[48, 0]}
           style={{
             backgroundColor: '#f7f7f7',
             padding: '2rem 1rem',
@@ -103,22 +103,31 @@ const AddCategory = () => {
           }}
         >
           <Col span={16}>
-            <Form.Item label="Category name" required>
-              <Input placeholder="Category name" size="large" />
+            <Form.Item
+              label="Category name"
+              name="categoryName"
+              rules={[
+                {
+                  required: true,
+                  message: 'Category name is required',
+                },
+              ]}
+            >
+              <Input placeholder="Category Name" size="large" />
             </Form.Item>
 
             <Form.Item name="parent category" label="Parent Category">
               <Select
-                placeholder="Select an option"
-                onChange={onGenderChange}
+                placeholder="Select an Option"
+                onChange={handleSelectCategory}
                 size="large"
                 allowClear
               >
-                <Option value="male">Lunch Package</Option>
-                <Option value="female">Japanese</Option>
-                <Option value="other">Salad</Option>
-                <Option value="other">Indian Food</Option>
-                <Option value="other">Dinner Package</Option>
+                <Option value="lunch_package">Lunch Package</Option>
+                <Option value="japanese">Japanese</Option>
+                <Option value="salad">Salad</Option>
+                <Option value="indian_food">Indian Food</Option>
+                <Option value="dinner_package">Dinner Package</Option>
               </Select>
             </Form.Item>
 
@@ -205,15 +214,16 @@ const AddCategory = () => {
 
               <Form.Item>
                 <Button
-                  type="danger"
+                  type="primary"
                   style={{
-                    marginRight: '1rem',
+                    marginRight: '0.6rem',
                   }}
                   onClick={handleReset}
+                  danger
                 >
                   Reset
                 </Button>
-                <Button type="primary" htmlType="submit" onClick={handleSubmit}>
+                <Button type="primary" htmlType="submit">
                   Submit
                 </Button>
               </Form.Item>
