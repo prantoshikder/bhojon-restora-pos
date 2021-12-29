@@ -2,7 +2,7 @@ import { Col } from 'antd';
 import CustomRow from 'components/partials/CustomRow';
 import React from 'react';
 import AddCategory from '../../components/AddCategory';
-import Heading from '../../components/Heading/index';
+import Heading from '../../components/Heading';
 import Header from '../../components/partials/Header';
 import Sidebar from '../../components/partials/Sidebar';
 

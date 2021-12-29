@@ -81,9 +81,11 @@ const AddCategory = () => {
     });
   };
 
+  const handleAddCategory = () => {};
+
   return (
     <div className="site-card-wrapper">
-      <Form form={form} layout="vertical">
+      <Form form={form} onChange={handleAddCategory} layout="vertical">
         <Row
           // gutter={[48, 0]}
           style={{
@@ -196,12 +198,9 @@ const AddCategory = () => {
 
               <Form.Item>
                 <Button
-                  type=""
+                  type="danger"
                   style={{
                     marginRight: '1rem',
-                    backgroundColor: '#007023',
-                    color: '#fff',
-                    borderColor: '#007023',
                   }}
                   onClick={handleReset}
                 >
