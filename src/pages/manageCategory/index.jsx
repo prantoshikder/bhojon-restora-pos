@@ -8,13 +8,12 @@ import Sidebar from '../../components/partials/Sidebar';
 const FoodManagement = () => {
   return (
     <>
-      <Header />
-
       <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
         <Col span={19}>
+          <Header />
           <AddCategory />
         </Col>
       </CustomRow>

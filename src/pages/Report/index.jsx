@@ -8,14 +8,13 @@ import Sidebar from '../../components/partials/Sidebar';
 const Report = () => {
   return (
     <>
-      <Header />
-
       <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
 
         <Col span={19}>
+          <Header />
           <Heading title="Reports" />
           <h1>Coming soon</h1>
         </Col>

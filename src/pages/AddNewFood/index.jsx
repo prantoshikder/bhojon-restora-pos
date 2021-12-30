@@ -9,13 +9,12 @@ import Sidebar from '../../components/partials/Sidebar';
 const AddNewFood = () => {
   return (
     <>
-      <Header />
-
       <CustomRow>
         <Col span={4}>
           <Sidebar />
         </Col>
         <Col span={19}>
+          <Header />
           <Heading title="Add New Food" />
           <AddedNewFood />
         </Col>

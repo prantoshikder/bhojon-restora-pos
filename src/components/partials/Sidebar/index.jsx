@@ -26,9 +26,7 @@ const Sidebar = ({ home }) => {
   };
 
   return (
-    <div
-      style={{ height: 'calc(100vh - 83px)', width: 256, position: 'fixed' }}
-    >
+    <div style={{ height: '100%', width: 256, position: 'fixed' }}>
       {home ? (
         <Menu
           theme="dark"

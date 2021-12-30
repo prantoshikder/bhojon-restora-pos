@@ -26,11 +26,23 @@ const { Option } = Select;
 
 const AddCategory = () => {
   const [form] = Form.useForm();
-  const [value, setValue] = useState('active');
-  const [color, setColor] = useState('#0f71c5');
+  // const [value, setValue] = useState('active');
+  // const [color, setColor] = useState('#0f71c5');
   const [packageOffer, setPackageOffer] = useState('');
 
-  const handleSelectCategory = () => {};
+  const [categories, setCategories] = useState({
+    categoryName: '',
+    parentCategory: '',
+    categoryImage: '',
+    categoryIcon: '',
+    categoryStatus: 'active',
+    categoryOffer: '',
+    categoryBackgroundColor: '#0f71c5',
+  });
+
+  const handleSelectCategory = (value) => {
+    setCategories({ ...categories, parentCategory: value });
+  };
 
   const normFile = (e) => {
     console.log('Upload event:', e);
@@ -53,8 +65,13 @@ const AddCategory = () => {
   };
 
   const handleChangeStatus = (e) => {
-    console.log('radio checked', e.target.value);
-    setValue(e.target.value);
+    setCategories({ ...categories, categoryStatus: e.target.value });
+  };
+
+  const handleDateRange = (value, dateString) => {
+    console.log('value', value);
+    console.log('dateString', dateString);
+    setCategories({ ...categories, categoryOffer: dateString });
   };
 
   const handleReset = () => {
@@ -70,6 +87,8 @@ const AddCategory = () => {
   };
 
   const handleSubmit = () => {
+    console.log('categories', categories);
+
     message.success({
       content: 'Foods category added successfully ',
       className: 'custom-class',
@@ -113,13 +132,21 @@ const AddCategory = () => {
                 },
               ]}
             >
-              <Input placeholder="Category Name" size="large" />
+              <Input
+                placeholder="Category Name"
+                size="large"
+                value={categories.categoryName}
+                onChange={(e) =>
+                  setCategories({ ...categories, categoryName: e.target.value })
+                }
+              />
             </Form.Item>
 
             <Form.Item name="parent category" label="Parent Category">
               <Select
                 placeholder="Select an Option"
                 onChange={handleSelectCategory}
+                value={categories.parentCategory}
                 size="large"
                 allowClear
               >
@@ -173,9 +200,14 @@ const AddCategory = () => {
                 <Input
                   type="color"
                   size="large"
-                  value={color}
                   name="color"
-                  onChange={(e) => setColor(e.target.value)}
+                  value={categories.categoryBackgroundColor}
+                  onChange={(e) =>
+                    setCategories({
+                      ...categories,
+                      categoryBackgroundColor: e.target.value,
+                    })
+                  }
                 />
               </Form.Item>
 
@@ -201,12 +233,20 @@ const AddCategory = () => {
 
               {packageOffer && (
                 <Space direction="vertical" size={12}>
-                  <RangePicker disabledDate={disabledDate} />
+                  <RangePicker
+                    format="DD-MM-YYYY"
+                    disabledDate={disabledDate}
+                    value={categories.categoryOffer}
+                    onChange={handleDateRange}
+                  />
                 </Space>
               )}
 
               <Form.Item label="Status" valuePropName="checked">
-                <Radio.Group onChange={handleChangeStatus} value={value}>
+                <Radio.Group
+                  value={categories.categoryStatus}
+                  onChange={handleChangeStatus}
+                >
                   <Radio value="active">Active</Radio>
                   <Radio value="inActive">Inactive</Radio>
                 </Radio.Group>
